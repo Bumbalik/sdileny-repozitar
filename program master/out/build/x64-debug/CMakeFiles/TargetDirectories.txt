@@ -1,0 +1,3 @@
+C:/Users/Student/Desktop/program/out/build/x64-debug/CMakeFiles/statisticka_kalkulacka.dir
+C:/Users/Student/Desktop/program/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/Student/Desktop/program/out/build/x64-debug/CMakeFiles/rebuild_cache.dir

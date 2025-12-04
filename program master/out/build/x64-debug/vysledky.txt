@@ -1,0 +1,6 @@
+--- Vysledky statistickej analyzy (cisla) ---
+Priemer:         34.0000
+Vazeny priemer:  36.2000
+Median:          34.0000
+Rozptyl:         403.3333
+Smer. odchylka:  20.0832
