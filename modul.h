@@ -1,28 +1,44 @@
 #pragma once
 
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <ctype.h>
+#include <algorithm>
+#include <array>
+#include <cmath>
+#include <cstdio>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
 
-#define MAX_DATA_VELKOST 1000     
-#define MAX_TEXT_VELKOST 5000     
-#define MAX_DLZKA_SLOVA 30        
-#define HISTOGRAM_TRIEDY 10       
+const int MAX_DATA_VELKOST = 1000;
+const int MAX_TEXT_VELKOST = 5000;
+const int MAX_DLZKA_SLOVA = 30;
+const int HISTOGRAM_TRIEDY = 10;
 
 void vycistiBuffer();
-double spocitajPriemer(double data[], int pocet);
-double spocitajVazenyPriemer(double data[], int pocet);
-void utriedPole(double data[], int pocet); 
-void spocitajMedian(double data[], int pocet, double* median);
-void spocitajRozptyl(double data[], int pocet, double priemer, double* rozptyl, double* smerOdchylka);
-void zobrazHistogramCisiel(double data[], int pocet);
 
-void ulozCiselneVysledky(double priemer, double v_priemer, double median, double rozptyl, double smerOdchylka); 
-int spocitajZnaky(const char* text);
-int spocitajSlova(const char* text);
-void zobrazHistogramPismen(const char* text);
-void zobrazHistogramDlzkySlov(const char* text);
-void ulozTextoveVysledky(int pocetZnakov, int pocetSlov);
+int citajDataZoSuboru(std::vector<double>& data, const std::string& cesta);
+bool citajTextZoSuboru(std::string& text, const std::string& cesta);
 
-int citajDataZoSuboru(double data[], int maxPocet);
+std::vector<double> nacitajCiselneHodnotyZRiadku(int pocetHodnot);
+double spocitajPriemer(const std::vector<double>& data);
+double spocitajVazenyPriemer(const std::vector<double>& data, const std::vector<double>& vahy);
+double spocitajMedian(std::vector<double> data);
+std::pair<double, double> spocitajRozptyl(const std::vector<double>& data, double priemer);
+std::vector<int> vytvorHistogramCisiel(const std::vector<double>& data, int triedy, double& min, double& max);
+void vykresliHistogramSGaussom(const std::vector<int>& bins, double min, double max, double priemer, double smerOdchylka);
+
+void ulozCiselneVysledky(const std::string& cesta, double priemer, double vazenyPriemer, double median, double rozptyl, double smerOdchylka);
+
+int spocitajZnaky(const std::string& text);
+int spocitajSlova(const std::string& text);
+std::array<int, 26> vytvorHistogramPismen(const std::string& text);
+std::vector<int> vytvorHistogramDlzkySlov(const std::string& text, int maxDlzka);
+void vypisHistogramPismen(const std::array<int, 26>& pocty);
+void vypisHistogramDlzkySlov(const std::vector<int>& pocty);
+
+void ulozTextoveVysledky(const std::string& cesta, int pocetZnakov, int pocetSlov);
+

@@ -1,8 +1,4 @@
-// main.h : Include file for standard system include files,
-// or project specific include files.
-
 #pragma once
 
-#include <iostream>
+// Prazdny hlavickovy subor ponechany pre potencialne rozsirenia aplikacie.
 
-// TODO: Reference additional headers your program requires here.
